@@ -20,8 +20,12 @@ conda activate birthdays-env
 Install package dependencies (first time only):
 
 ```sh
-pip install pytest==3.10.1
+pip install python-dotenv sendgrid pytest==3.10.1
 ```
+
+## Setup
+
+> TODO: instructions for setting environment variables
 
 ## Usage
 
