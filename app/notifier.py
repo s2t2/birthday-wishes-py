@@ -1,5 +1,9 @@
 
 
+def upcoming_birthdays():
+    return []
+
 if __name__ == "__main__":
     print("DETECTING UPCOMING BIRTHDAYS...")
-    print("SENDING NOTIFICATION...")
+    upcoming_birthdays()
+    print("SENDING NOTIFICATIONS...")
