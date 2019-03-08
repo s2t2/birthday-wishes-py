@@ -20,8 +20,18 @@ conda activate birthdays-env
 Install package dependencies (first time only):
 
 ```sh
-pip install pytest==3.10.1
+pip install python-dotenv sendgrid pytest==3.10.1
 ```
+
+## Setup
+
+### Email
+
+For email capabilities, [sign up for a SendGrid account](https://signup.sendgrid.com/), click the link in a confirmation email to verify your account, then [create a new API key](https://app.sendgrid.com/settings/api_keys) with "full access" permissions.
+
+After obtaining an API Key, copy the ".env.example" file to a new file called ".env", and update the contents of the ".env" file to specify your real API Key as an environment variable called `SENDGRID_API_KEY`.
+
+Also set the environment variables `SENDER_EMAIL_ADDRESS` and `RECIPIENT_EMAIL_ADDRESS` to specify which addresses should send and receive the email, respectively.
 
 ## Usage
 
