@@ -9,3 +9,7 @@
   + https://app.sendgrid.com/settings/api_keys
 
 First, sign up for a free account, then verify account. Then create an API Key with "full access" permissions.
+
+## Pretty Printing
+
+  + https://docs.python.org/3/library/pprint.html

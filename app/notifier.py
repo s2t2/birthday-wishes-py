@@ -1,5 +1,6 @@
 
 import os
+#import pprint
 
 from dotenv import load_dotenv
 import sendgrid
@@ -20,12 +21,12 @@ def send_email():
 
     from_email = Email(SENDER_EMAIL_ADDRESS)
     to_email = Email(RECIPIENT_EMAIL_ADDRESS)
-    subject = "Hello World from the SendGrid Python Library!"
-    content = Content("text/plain", "Hello, Email!")
+    subject = "Birthday Wishes"
+    multiline_content = "FYI - Callie Cousin's birthday is coming up on June 5th. \n\n You can send her a text at: 123.456.7890"
+    content = Content("text/plain", multiline_content)
     mail = Mail(from_email, subject, to_email, content)
 
     response = sg.client.mail.send.post(request_body=mail.get())
-
     return response
 
 if __name__ == "__main__":
@@ -35,7 +36,9 @@ if __name__ == "__main__":
     print("SENDING NOTIFICATIONS...")
     response = send_email()
 
+    #pp = pprint.PrettyPrinter(indent=4)
     print("RESPONSE: ", type(response))
     print("STATUS:", response.status_code)
-    print("HEADERS:", dict(response.headers))
-    print("BODY:", response.body)
+    #print("HEADERS:")
+    #pp.pprint(dict(response.headers))
+    #print("BODY:", response.body)
