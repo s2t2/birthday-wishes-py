@@ -21,7 +21,6 @@ Install package dependencies (first time only):
 
 ```sh
 pip install -r requirements.txt
-pip install pytest==3.10.1
 ```
 
 ## Setup
@@ -55,6 +54,12 @@ python app/notifier.py
 ```
 
 ## Testing
+
+Install package dependencies (first time only):
+
+```sh
+pip install pytest==3.10.1
+```
 
 Run tests:
 
@@ -107,6 +112,18 @@ After this configuration process is complete, you should be able to "deploy" the
 git push heroku master
 ```
 
-Finally, once you've deployed the source code to the Heroku server, configure the server's "Scheduler" resource to run the notification script at specified intervals, for example once per day.
+Once you've deployed the source code to the Heroku server, optionally login to the server to see the files there and test the server's ability to run the notification script:
+
+```sh
+heroku run bash -a birthday-wishes-py
+ls -al # ... and see the files, nice!
+python app/notifier.py # ... and see the output, nice!
+exit
+
+# or alternatively:
+heroku run "python app/notifier.py" -a birthday-wishes-py
+```
+
+Finally, configure the server's "Heroku Scheduler" resource to run the notification script at specified intervals, for example once per day.
 
 ## [Licence](/LICENSE.md)
