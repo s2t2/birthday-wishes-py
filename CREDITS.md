@@ -28,3 +28,7 @@ For some recipient phone numbers, seeing error message "Unable to create record:
 It seems in order to send an SMS to a phone number, you first need to "verify" that number. The process involves sending an SMS to the requested number, and then entering a code sent to that number. So if you want to send to someone else, you need to coordinate with them beforehand.
 
   + https://www.twilio.com/console/phone-numbers/verified
+
+## Heroku
+
+  + https://devcenter.heroku.com/articles/config-vars
