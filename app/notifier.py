@@ -24,44 +24,46 @@ def upcoming_birthdays():
 # adapted from: https://github.com/prof-rossetti/georgetown-opim-243-201901/blob/master/notes/python/packages/sendgrid.md
 def send_email():
     sg = sendgrid.SendGridAPIClient(apikey=SENDGRID_API_KEY)
-
     from_email = Email(SENDER_EMAIL_ADDRESS)
     to_email = Email(RECIPIENT_EMAIL_ADDRESS)
     subject = "Birthday Wishes"
-    multiline_content = "FYI - Callie Cousin's birthday is coming up on June 5th. \n\n You can send her a text at: 123.456.7890"
+    multiline_content = "Callie Cousin's birthday is coming up on June 5th. \n\n You can send her a text at: 123.456.7890"
     content = Content("text/plain", multiline_content)
     mail = Mail(from_email, subject, to_email, content)
-
     response = sg.client.mail.send.post(request_body=mail.get())
     return response
 
 # adapted from: https://www.twilio.com/docs/libraries/python
 def send_sms():
     client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
-
-    content = "FYI - Callie Cousin's birthday is coming up on June 5th. You can send her a text at: 123.456.7890"
+    content = "Callie Cousin's birthday is coming up on June 5th. You can send her a text at: 123.456.7890"
     message = client.messages.create(to=RECIPIENT_SMS, from_=SENDER_SMS, body=content)
     return message #> <class 'twilio.rest.api.v2010.account.message.MessageInstance'>
 
 if __name__ == "__main__":
     pp = pprint.PrettyPrinter(indent=4)
 
+    print("----------------------")
     print("DETECTING UPCOMING BIRTHDAYS...")
+    print("----------------------")
     upcoming_birthdays()
 
+    print("----------------------")
     print("SENDING NOTIFICATIONS...")
 
-    ## EMAIL
-    #
-    #response = send_email()
-    #print("RESPONSE: ", type(response))
-    #print("STATUS:", response.status_code)
-    #print("HEADERS:")
-    #pp.pprint(dict(response.headers))
-    #print("BODY:", response.body)
+    print("----------------------")
+    print("EMAIL")
+    print("----")
+    email_response = send_email()
+    print("RESPONSE: ", type(email_response))
+    print("STATUS:", email_response.status_code)
+    print("HEADERS:")
+    pp.pprint(dict(email_response.headers))
+    print("BODY:", email_response.body)
 
-    # SMS
-
+    print("----------------------")
+    print("SMS")
+    print("----")
     sms_response = send_sms()
     print("FROM:", sms_response.from_)
     print("TO:", sms_response.to)
