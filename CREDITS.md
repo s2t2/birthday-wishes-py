@@ -34,3 +34,23 @@ It seems in order to send an SMS to a phone number, you first need to "verify" t
   + https://devcenter.heroku.com/articles/config-vars
   + https://devcenter.heroku.com/articles/buildpacks
   + https://devcenter.heroku.com/articles/python-support
+
+## Google Cloud Functions
+
+  + https://console.cloud.google.com
+  + https://console.cloud.google.com/functions
+
+Create a new project. Enable Cloud Functions API. Create a function.
+
+How to schedule, though?
+
+  + https://cloud.google.com/scheduler/
+  + https://cloud.google.com/scheduler/docs/tut-pub-sub
+  + https://rominirani.com/google-cloud-functions-tutorial-using-the-cloud-scheduler-to-trigger-your-functions-756160a95c43
+  + https://console.cloud.google.com/cloudscheduler
+  + https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=en_US#defining_the_job_schedule
+  + https://serverfault.com/a/248309
+
+Visit cloud scheduler and create a new job, in location "us-east-1"...
+
+... cloud function trigger should be a pubsub event

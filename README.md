@@ -67,7 +67,7 @@ Run tests:
 pytest
 ```
 
-## Deploying
+## Deploying to Heroku
 
 First, [install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install), and make sure you can login and list your applications. Then create a new application server, optionally specifying a name (e.g. "birthday-wishes-py"):
 
@@ -124,6 +124,14 @@ exit
 heroku run "python app/notifier.py" -a birthday-wishes-py
 ```
 
-Finally, configure the server's "Heroku Scheduler" resource to run the notification script at specified intervals, for example once per day.
+Finally, provision and configure the server's "Heroku Scheduler" resource to run the notification script at specified intervals, for example once per day.
+
+## Deploying to Google Cloud
+
+
+
+
+
+
 
 ## [Licence](/LICENSE.md)

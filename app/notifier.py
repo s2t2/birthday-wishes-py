@@ -1,4 +1,5 @@
 
+import base64
 import os
 import pprint
 
@@ -40,7 +41,7 @@ def send_sms():
     message = client.messages.create(to=RECIPIENT_SMS, from_=SENDER_SMS, body=content)
     return message #> <class 'twilio.rest.api.v2010.account.message.MessageInstance'>
 
-if __name__ == "__main__":
+def notify():
     pp = pprint.PrettyPrinter(indent=4)
 
     print("----------------------")
@@ -69,3 +70,20 @@ if __name__ == "__main__":
     print("TO:", sms_response.to)
     print("BODY:", sms_response.body)
     pp.pprint(dict(sms_response._properties))
+
+# adapted from google cloud functions example
+# for this to work, the function needs to have two arguments: event, and context
+def gcloud_pubsub(event, context):
+    """Triggered from a message on a Google Cloud Pub/Sub topic.
+    Args:
+        event (dict): Event payload.
+        context (google.cloud.functions.Context): Metadata for the event.
+    """
+    pubsub_message = base64.b64decode(event["data"]).decode("utf-8")
+    print(pubsub_message)
+
+    print("TRIGGERING NOTIFICATION...")
+    notify()
+
+if __name__ == "__main__":
+    notify()
