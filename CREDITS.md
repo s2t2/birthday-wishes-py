@@ -50,7 +50,14 @@ How to schedule, though?
   + https://console.cloud.google.com/cloudscheduler
   + https://cloud.google.com/scheduler/docs/configuring/cron-job-schedules?hl=en_US#defining_the_job_schedule
   + https://serverfault.com/a/248309
+  + https://console.cloud.google.com/cloudscheduler?project=birthday-wishes-py&authuser=3&jobs-tablesize=50
 
 Visit cloud scheduler and create a new job, in location "us-east-1"...
 
 ... cloud function trigger should be a pubsub event
+
+  + https://console.cloud.google.com/cloudpubsub
+
+Cron:
+  + Every ten minutes: `*/10 * * * *`
+  + Every hour on the 24th minute: `24 */1 * * *`
