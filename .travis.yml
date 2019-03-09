@@ -3,6 +3,6 @@ language: python
 python:
   - "3.7"
 install:
-  - pip install python-dotenv sendgrid twilio
+  - pip install -r requirements.txt
 script:
   - pytest

@@ -20,7 +20,8 @@ conda activate birthdays-env
 Install package dependencies (first time only):
 
 ```sh
-pip install python-dotenv sendgrid twilio pytest==3.10.1
+pip install -r requirements.txt
+pip install pytest==3.10.1
 ```
 
 ## Setup

@@ -32,3 +32,5 @@ It seems in order to send an SMS to a phone number, you first need to "verify" t
 ## Heroku
 
   + https://devcenter.heroku.com/articles/config-vars
+  + https://devcenter.heroku.com/articles/buildpacks
+  + https://devcenter.heroku.com/articles/python-support
