@@ -13,7 +13,8 @@ DOCUMENT_KEY = os.environ.get("GOOGLE_SHEET_ID", "OOPS Please get the spreadshee
 
 #
 # AUTHORIZATION
-# ... scopes: https://developers.google.com/sheets/api/guides/authorizing
+# ... https://developers.google.com/sheets/api/guides/authorizing
+# ... https://gspread.readthedocs.io/en/latest/oauth2.html
 #
 
 CREDENTIALS_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "auth", "spreadsheet_credentials.json")
