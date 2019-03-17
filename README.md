@@ -20,7 +20,8 @@ conda activate birthdays-env
 Install package dependencies (first time only):
 
 ```sh
-pip install python-dotenv sendgrid twilio pytest==3.10.1
+pip install -r requirements.txt
+pip install pytest==3.10.1
 ```
 
 ## Setup
@@ -60,5 +61,52 @@ Run tests:
 ```sh
 pytest
 ```
+
+## Deploying
+
+First, [install the Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli#download-and-install), and make sure you can login and list your applications. Then create a new application server, optionally specifying a name (e.g. "birthday-wishes-py"):
+
+```sh
+heroku login
+
+heroku apps:list
+heroku apps:create birthday-wishes-py # or do this from the online console
+heroku apps:list
+```
+
+Then associate this repository with that application, as necessary:
+
+```sh
+git remote -v
+heroku git:remote -a birthday-wishes-py # necessary if you created the app from the online console
+git remote -v
+```
+
+Next, configure environment variables on the server, via the online console or the command line:
+
+```sh
+heroku config -a birthday-wishes-py
+
+# for email capabilities:
+heroku config:set SENDGRID_API_KEY="abc123" -a birthday-wishes-py
+heroku config:set SENDER_EMAIL_ADDRESS="someone@gmail.com" -a birthday-wishes-py
+heroku config:set RECIPIENT_EMAIL_ADDRESS="someone@gmail.com" -a birthday-wishes-py
+
+# for SMS capabilities:
+heroku config:set TWILIO_ACCOUNT_SID="abc456" -a birthday-wishes-py
+heroku config:set TWILIO_AUTH_TOKEN="abc789" -a birthday-wishes-py
+heroku config:set SENDER_SMS="+12021234567" -a birthday-wishes-py
+heroku config:set RECIPIENT_SMS="+12021234567" -a birthday-wishes-py
+
+heroku config -a birthday-wishes-py
+```
+
+After this configuration process is complete, you should be able to "deploy" the application's source code to the Heroku server:
+
+```sh
+git push heroku master
+```
+
+Finally, once you've deployed the source code to the Heroku server, configure the server's "Scheduler" resource to run the notification script at specified intervals, for example once per day.
 
 ## [Licence](/LICENSE.md)
