@@ -86,7 +86,6 @@ python app/sheets.py
 Run a local web server, then view your app in a browser at http://localhost:5000/:
 
 ```sh
-# FLASK_APP=my_routes flask run
 FLASK_APP=web_app flask run
 ```
 
