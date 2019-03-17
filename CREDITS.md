@@ -81,3 +81,6 @@ Download the .json file and store it in this repo as "auth/spreadsheet_credentia
 Create a spreadsheet file named with your own user account, name it "Birthday Wishes", and share edit privileges with the "client email" address located in the credentials file.
 
 Also enable the "Google Drive API" and it says the existing credentials file is sufficient to use in conjunction with this API as well.
+
+
+FYI: gsheets expects column headers!

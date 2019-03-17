@@ -7,17 +7,17 @@ import gspread
 from gspread.exceptions import SpreadsheetNotFound
 from oauth2client.service_account import ServiceAccountCredentials
 
+load_dotenv()
+
+DOCUMENT_KEY = os.environ.get("GOOGLE_SHEET_ID", "OOPS Please get the spreadsheet identifier from its URL")
+
 #
 # AUTHORIZATION
 #
 
 CREDENTIALS_FILEPATH = os.path.join(os.path.dirname(__file__), "..", "auth", "spreadsheet_credentials.json")
 
-# avoid "Insufficient Permission: Request had insufficient authentication scopes." response error
-# see: https://developers.google.com/sheets/api/guides/authorizing
-
 AUTH_SCOPE = [
-    #"https://spreadsheets.google.com/feeds",
     "https://www.googleapis.com/auth/spreadsheets.readonly", #> Allows read-only access to the user's sheets and their properties.
     "https://www.googleapis.com/auth/drive.file" #> Per-file access to files created or opened by the app.
 ]
@@ -28,41 +28,17 @@ credentials = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILEP
 # REQUESTS / RESPONSES
 #
 
-DOCUMENT_NAME = "Birthday Wishes"
+client = gspread.authorize(credentials) #> <class 'gspread.client.Client'>
+
+doc = client.open_by_key(DOCUMENT_KEY) #> <class 'gspread.models.Spreadsheet'>
 
 print("-----------------")
-print("SPREADSHEET: ", DOCUMENT_NAME)
+print("SPREADSHEET:", doc.title)
 print("-----------------")
 
-client = gspread.authorize(credentials)
-print(type(client)) #> <class 'gspread.client.Client'>
+sheet = doc.worksheet("Birthdays") #> <class 'gspread.models.Worksheet'>
 
-# LIST FILES (not working...)
-# drive_files = client.list_spreadsheet_files()
-# print("FILES:", drive_files)
+rows = sheet.get_all_records() #> <class 'list'>
 
-try:
-    doc = client.open(DOCUMENT_NAME) # not working...
-    # sheet = doc.sheet1
-    # sheet = client.open(DOCUMENT_NAME).sheet1
-    # rows = sheet.get_all_records()
-    #print(type(rows))
-    breakpoint()
-except SpreadsheetNotFound as e:
-    load_dotenv()
-
-    DOCUMENT_KEY = os.environ.get("GOOGLE_SHEET_ID", "OOPS Please get the spreadsheet identifier from its URL") #> mjr
-
-    doc = client.open_by_key(DOCUMENT_KEY)
-    print(type(doc)) #> <class 'gspread.models.Spreadsheet'>
-    print(doc.title) #> "Birthday Wishes"
-
-    sheet = doc.sheet1
-    print(type(sheet)) #> <class 'gspread.models.Worksheet'>
-
-    rows = sheet.get_all_records()
-    print(type(rows)) #> <class 'list'>
-
-    for row in rows:
-        print(type(row)) #> <class 'dict'>
-        print(row)
+for row in rows:
+    print(row) #> <class 'dict'>
