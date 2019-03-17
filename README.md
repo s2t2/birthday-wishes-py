@@ -54,9 +54,7 @@ Finally, set an environment variable called `RECIPIENT_SMS` to specify the recip
 
 Visit the [Google Developer Console](https://console.developers.google.com/cloud-resource-manager). Create a new project, or select an existing one. Click on your project, then from the project page, search for the "Google Sheets API" and enable it. Also search for the "Google Drive API" and enable it.
 
-From either API page, or from the [API Credentials](https://console.developers.google.com/apis/credentials) page, follow a process to generate and download credentials to use the APIs.
-
-Fill in the form to find out what kind of credentials:
+From either API page, or from the [API Credentials](https://console.developers.google.com/apis/credentials) page, follow a process to generate and download credentials to use the APIs. Fill in the form to find out what kind of credentials:
 
   + API: "Google Sheets API"
   + Calling From: "Web Server"
@@ -67,7 +65,7 @@ The suggested credentials will be for a service account. Follow the prompt to cr
 
 #### Create a Spreadsheet
 
-Create a new Google Sheets document, and inside it create a sheet named "Birthdays". Obtain the document's unique identifier from the URL, and store it in an environment variable called `GOOGLE_SHEET_ID`.
+Create a new Google Sheets document, and inside it create a sheet named "Birthdays" with column headers of `name`, `month`, and `day`. Obtain the document's unique identifier from the URL, and store it in an environment variable called `GOOGLE_SHEET_ID`.
 
 Edit the sharing settings of this document to grant "edit" privileges to the "client email" address located in the credentials file.
 
