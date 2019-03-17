@@ -85,3 +85,10 @@ Also enable the "Google Drive API" and it says the existing credentials file is 
 
 
 FYI: gsheets expects column headers!
+
+## Flask
+
+  + http://flask.pocoo.org/docs/1.0/
+  + http://flask.pocoo.org/docs/1.0/quickstart/#quickstart
+  + http://flask.pocoo.org/docs/1.0/installation/
+  + http://flask.pocoo.org/docs/1.0/tutorial/factory/
