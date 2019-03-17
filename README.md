@@ -46,12 +46,27 @@ You'll also need to [obtain a Twilio phone number](https://www.twilio.com/consol
 
 Finally, set an environment variable called `RECIPIENT_SMS` to specify the recipient's phone number (including the plus sign at the beginning).
 
+### Google Sheets
+
+
+
+
+
+
+
+
 ## Usage
 
 Run the notification script:
 
 ```sh
 python app/notifier.py
+```
+
+Get data from google sheets:
+
+```sh
+python app/sheets.py
 ```
 
 ## Testing

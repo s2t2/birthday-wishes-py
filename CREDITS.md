@@ -34,3 +34,40 @@ It seems in order to send an SMS to a phone number, you first need to "verify" t
   + https://devcenter.heroku.com/articles/config-vars
   + https://devcenter.heroku.com/articles/buildpacks
   + https://devcenter.heroku.com/articles/python-support
+
+## Google Sheets
+
+gspread:
+
+  + https://github.com/burnash/gspread
+  + https://www.twilio.com/blog/2017/02/an-easy-way-to-read-and-write-to-a-google-spreadsheet-in-python.html
+
+pandas dataframe-related approaches:
+
+  + https://erikrood.com/Posts/py_gsheets.html
+  + https://towardsdatascience.com/how-to-access-google-sheet-data-using-the-python-api-and-convert-to-pandas-dataframe-5ec020564f0e
+
+...
+
+need credentials first:
+
+  + https://console.developers.google.com/cloud-resource-manager?authuser=3
+
+then click on your project. search bar enter "Google Sheets" and click on the "Google Sheets API".
+
+Enable it.
+
+  + https://console.developers.google.com/apis/library/sheets.googleapis.com?project=birthday-wishes-py&authuser=3
+
+Find out what credentials:
+
+  + API: "Google Sheets API"
+  + Calling From: "Web Server"
+  + Accessing: "Application Data"
+  + Using Engines: "No"
+
+A service account. Create a new one with a "Project" > "Editor" role.
+
+Download the .json file and store it in this repo as "auth/spreadsheet_credentials.json".
+
+Create a spreadsheet file named with your own user account, name it "Birthday Wishes", and share edit privileges with the "client email" address located in the credentials file.
