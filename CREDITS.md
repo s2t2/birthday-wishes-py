@@ -37,6 +37,14 @@ It seems in order to send an SMS to a phone number, you first need to "verify" t
 
 ## Google Sheets
 
+### Research
+
+official:
+
+  + https://github.com/googleapis/google-api-python-client
+  + https://developers.google.com/api-client-library/python/
+  + https://developers.google.com/sheets/api/guides/authorizing
+
 gspread:
 
   + https://github.com/burnash/gspread
@@ -47,7 +55,7 @@ pandas dataframe-related approaches:
   + https://erikrood.com/Posts/py_gsheets.html
   + https://towardsdatascience.com/how-to-access-google-sheet-data-using-the-python-api-and-convert-to-pandas-dataframe-5ec020564f0e
 
-...
+### Setup
 
 need credentials first:
 
@@ -71,3 +79,5 @@ A service account. Create a new one with a "Project" > "Editor" role.
 Download the .json file and store it in this repo as "auth/spreadsheet_credentials.json".
 
 Create a spreadsheet file named with your own user account, name it "Birthday Wishes", and share edit privileges with the "client email" address located in the credentials file.
+
+Also enable the "Google Drive API" and it says the existing credentials file is sufficient to use in conjunction with this API as well.
