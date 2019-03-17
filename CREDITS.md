@@ -92,3 +92,4 @@ FYI: gsheets expects column headers!
   + http://flask.pocoo.org/docs/1.0/quickstart/#quickstart
   + http://flask.pocoo.org/docs/1.0/installation/
   + http://flask.pocoo.org/docs/1.0/tutorial/factory/
+  + https://github.com/prof-rossetti/products-api-flask/tree/csv/products_api
