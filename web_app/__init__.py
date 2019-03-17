@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 from flask import Flask #, jsonify
 
-# from web_app.routes import home_routes
+from web_app.routes.home import home_routes
 
 def create_app():
     load_dotenv()
@@ -16,11 +16,7 @@ def create_app():
 
     app = Flask(__name__, instance_relative_config=True)
     app.config.from_mapping(ENV=app_env, SECRET_KEY=secret_key, TESTING=testing)
-    #app.register_blueprint(home_routes)
-
-    @app.route('/')
-    def index():
-        return "You have visited the homepage"
+    app.register_blueprint(home_routes)
 
     return app
 
