@@ -83,6 +83,14 @@ Get data from google sheets:
 python app/sheets.py
 ```
 
+Run a local web server, then view your app in a browser at http://localhost:5000/:
+
+```sh
+FLASK_APP=web_app flask run
+```
+
+> NOTE: you can quit the server by pressing ctrl+c at any time. If you change a file, you'll likely need to restart the server for the changes to take effect.
+
 ## Testing
 
 Run tests:
@@ -134,6 +142,8 @@ After this configuration process is complete, you should be able to "deploy" the
 
 ```sh
 git push heroku master
+# or deploy from a branch:
+# ... git push heroku flask-deploy:master
 ```
 
 Finally, once you've deployed the source code to the Heroku server, configure the server's "Scheduler" resource to run the notification script at specified intervals, for example once per day.
