@@ -95,3 +95,8 @@ FYI: gsheets expects column headers!
   + https://github.com/prof-rossetti/products-api-flask/tree/csv/products_api
   + http://flask.pocoo.org/docs/1.0/quickstart/#rendering-templates
   + http://jinja.pocoo.org/docs/2.10/templates/
+  + https://www.w3schools.com/tags/att_form_method.asp
+
+## Twitter Bootstrap
+
+  + https://getbootstrap.com/

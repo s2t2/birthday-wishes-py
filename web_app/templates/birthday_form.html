@@ -8,12 +8,14 @@
 
   <body>
     <div id="content">
-      <h1>Birthday Wishes App</h1>
-      <p>Reminds you to send well-wishes to friends and family on their birthdays.</p>
-      <ul>
-        <li><a href="/hello">Hello</a></li>
-        <li><a href="/birthdays/new">New Birthday Form</a></li>
-      </ul>
+      <h1>Add a New Birthday</h1>
+      <p>Please fill-in the form below...</p>
+
+      <form action="/birthdays/create" method="POST">
+        <input type="text" name="selected_name">
+        <input type="date" name="selected_date">
+        <button>Submit</button>
+      </form>
     </div>
 
     <div id="footer">
