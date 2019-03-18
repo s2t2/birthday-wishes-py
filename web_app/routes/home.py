@@ -1,17 +1,18 @@
 
-from flask import Blueprint, current_app, request, render_template
+from flask import Blueprint, request, render_template
 
 home_routes = Blueprint('home_routes', __name__)
 
 @home_routes.route('/')
 def index():
-    current_app.logger.info("VISITED THE INDEX PAGE")
+    print("VISITED THE INDEX PAGE")
     #return "You have visited the homepage"
     return render_template("index.html")
 
 @home_routes.route('/hello')
 def hello(name=None):
-    current_app.logger.info("VISITED THE HELLO PAGE")
+    print("VISITED THE HELLO PAGE")
+    print(dict(request.args))
 
     if "name" in request.args:
         name = request.args["name"]

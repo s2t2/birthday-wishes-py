@@ -96,6 +96,7 @@ FYI: gsheets expects column headers!
   + http://flask.pocoo.org/docs/1.0/quickstart/#rendering-templates
   + http://jinja.pocoo.org/docs/2.10/templates/
   + https://www.w3schools.com/tags/att_form_method.asp
+  + https://www.w3schools.com/tags/att_input_placeholder.asp
 
 ## Twitter Bootstrap
 

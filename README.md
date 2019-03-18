@@ -89,6 +89,8 @@ Run a local web server, then view your app in a browser at http://localhost:5000
 FLASK_APP=web_app flask run
 ```
 
+> NOTE: you can quit the server by pressing ctrl+c at any time. If you change a file, you'll likely need to restart the server for the changes to take effect.
+
 ## Testing
 
 Run tests:
