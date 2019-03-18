@@ -142,6 +142,8 @@ After this configuration process is complete, you should be able to "deploy" the
 
 ```sh
 git push heroku master
+# or deploy from a branch:
+# ... git push heroku flask-deploy:master
 ```
 
 Finally, once you've deployed the source code to the Heroku server, configure the server's "Scheduler" resource to run the notification script at specified intervals, for example once per day.
