@@ -11,16 +11,13 @@ birthday_routes = Blueprint("birthday_routes", __name__)
 
 @birthday_routes.route('/birthdays/new')
 def new():
-    print("VISITED THE NEW BIRTHDAY FORM")
+    print("VISITING THE NEW BIRTHDAY FORM")
     return render_template("birthday_form.html")
 
 @birthday_routes.route('/birthdays/create', methods=["POST"])
 def create():
     print("CREATING A BIRTHDAY...")
-    #return "Birthday Successfully Created!!"
-    print(dict(request.form))
-    #return jsonify(request.form)
-
+    print("FORM DATA:", dict(request.form))
     selected_date = request.form["selected_date"]
     birth_date = datetime.datetime.strptime(selected_date, "%Y-%m-%d") # convert to date, h/t: https://chrisalbon.com/python/basics/strings_to_datetime/
     birthday = {
@@ -28,5 +25,6 @@ def create():
         "month": birth_date.strftime("%B"), # birth_date.month,
         "day": birth_date.day
     }
-    print(birthday)
+    print("BIRTHDAY:", birthday)
     return jsonify(birthday)
+    #return jsonify({"message": "Birthday Successfully Created", "birthday": birthday})

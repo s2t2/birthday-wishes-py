@@ -5,14 +5,14 @@ home_routes = Blueprint('home_routes', __name__)
 
 @home_routes.route('/')
 def index():
-    print("VISITED THE INDEX PAGE")
+    print("VISITING THE INDEX PAGE")
     #return "You have visited the homepage"
     return render_template("index.html")
 
 @home_routes.route('/hello')
 def hello(name=None):
-    print("VISITED THE HELLO PAGE")
-    print(dict(request.args))
+    print("VISITING THE HELLO PAGE")
+    print("REQUEST PARAMS:", dict(request.args))
 
     if "name" in request.args:
         name = request.args["name"]
