@@ -6,22 +6,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
 
+
   <body>
-    <div id="content">
-      <h1>Add a New Birthday</h1>
-      <p>Please fill-in the form below...</p>
+    <div class="container">
+      <div id="content">
+        <h1>Add a New Birthday</h1>
+        <p>Please fill-in the form below...</p>
 
-      <form action="/birthdays/create" method="POST">
-        <input type="text" name="selected_person" placeholder="Person XYZ" value="Person ABC">
-        <input type="date" name="selected_date" value="2019-01-01">
-        <button>Submit</button>
-      </form>
-    </div>
+        <form action="/birthdays/create" method="POST">
+          <input type="text" name="selected_person" placeholder="Person XYZ" value="Person ABC">
+          <input type="date" name="selected_date" value="2019-01-01">
+          <button>Submit</button>
+        </form>
+      </div>
 
-    <div id="footer">
-      <hr>
-      &copy; Copyright 2019 MJ Rossetti |
-      <a href="https://github.com/s2t2/birthday-wishes-py">source</a>
+      <div id="footer">
+        <hr>
+        &copy; Copyright 2019 MJ Rossetti |
+        <a href="https://github.com/s2t2/birthday-wishes-py">source</a>
+      </div>
     </div>
   </body>
 
