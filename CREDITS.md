@@ -101,3 +101,8 @@ FYI: gsheets expects column headers!
 ## Twitter Bootstrap
 
   + https://getbootstrap.com/
+
+## Python Datetime
+
+  + http://strftime.org/
+  + https://chrisalbon.com/python/basics/strings_to_datetime/

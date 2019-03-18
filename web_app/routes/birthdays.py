@@ -3,7 +3,7 @@
 # ... https://github.com/prof-rossetti/products-api-flask/blob/csv/products_api/product_routes.py
 # ... https://github.com/prof-rossetti/salad-system-flask/blob/master/hello.py
 
-# import datetime
+import datetime
 
 from flask import Blueprint, request, render_template, jsonify
 
@@ -19,16 +19,14 @@ def create():
     print("CREATING A BIRTHDAY...")
     #return "Birthday Successfully Created!!"
     print(dict(request.form))
-    return jsonify(request.form)
+    #return jsonify(request.form)
 
-    #form_data = dict(request.form)
-    ##breakpoint()
-    ##selected_date = request.form["selected_date"]
-    ##birth_date = datetime.datetime.strptime(selected_date, "%Y-%m-%d") # convert to date, h/t: https://chrisalbon.com/python/basics/strings_to_datetime/
-    #birthday = {
-    #    "person": request.form["selected_person"],
-    #    "month": "October", # birth_date.month,
-    #    "day": 31 # birth_date.day
-    #}
-    #print(birthday)
-    #return jsonify(birthday)
+    selected_date = request.form["selected_date"]
+    birth_date = datetime.datetime.strptime(selected_date, "%Y-%m-%d") # convert to date, h/t: https://chrisalbon.com/python/basics/strings_to_datetime/
+    birthday = {
+        "person": request.form["selected_person"],
+        "month": birth_date.strftime("%B"), # birth_date.month,
+        "day": birth_date.day
+    }
+    print(birthday)
+    return jsonify(birthday)
